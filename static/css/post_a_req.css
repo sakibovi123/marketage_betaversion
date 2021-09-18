@@ -1,0 +1,369 @@
+#post_req{
+    background-color: #fafafa;
+}
+
+.post__requestForm .form-control {
+    padding-left: 0.5rem !important;
+}
+
+#div_id_post_status,
+#div_id_user {
+    display: none !important;
+}
+.button {
+    background-color: #428ad3 !important;
+    transition: .2s all ease-in-out !important;
+    color: #fff !important;
+    right: 0;
+    padding: 16px 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    line-height: 0;
+    outline: none !important;
+    transition: .3s;
+}
+#div_id_post_status button:hover {
+    background-color: #2e57a5 !important;
+}
+
+.hover-active{
+    padding: 35px;
+    margin-top: 30px;
+}
+
+.invalid-feedback {
+    display: none !important;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #4693FF !important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgb(70 147 255 / 25%) !important;
+}
+.text-area-title p{
+    font-size: 16px;
+    font-weight: 600;
+}
+.textarea textarea{
+    width: 100%;
+    height: 200px;
+    max-height: 100%;
+    padding: 10px;
+    outline: none;
+}
+.custom-file-upload{
+    background-color: #E4E5E7;
+    width: 150px;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.category-input select{
+    width: 100%;
+    outline: none;
+    padding: 8px;
+    color: #707070;
+    font-weight: 600;
+}
+.like-checked{
+    color: aqua;
+    background-color: blanchedalmond;
+}
+div.like-checked:focus{
+    color: black;
+    background-color: #E4E5E7;
+}
+
+
+.for-hover{
+    display: none;
+    transition: all 1s all ease;
+}
+
+.hover-active:hover + .for-hover{
+    display: block;
+}
+
+.inner-hover-part{
+    background-color: #ECFCFF;
+    padding: 20px;
+}
+.hover-part-title{
+    display: flex;
+    align-items: center;
+}
+.hover-part-title i{
+    font-size: 22px;
+    background-color: #CDF5FB;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.hover-part-title p, .hover-part-middle span{
+    padding-top: 12px;
+    font-weight: 700;
+    color: #197780;
+}
+.hover-des p, .hover-part-middle p{
+    text-align: justify;
+    font-weight: 500;
+}
+.middle-div-on-hover{
+    display: none;
+}
+.for-hover-middle{
+    overflow: hidden;
+    padding: 35px;
+}
+.for-hover-middle:hover + .middle-div-on-hover {
+    display: block;
+}
+.like-checked{
+    width: 120px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fbfbfc;
+    color: #000;
+    font-weight: 600;
+    z-index: 1;
+}
+.like-checked:hover{
+    background-color: #E4E5E7;
+}
+.like-checked{
+    border: 1px solid rgb(201, 199, 199);
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+}
+.delivery-days{
+    position: relative;
+}
+.over-input{
+    width: 18%;
+    right: -10px;
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+.input input{
+    padding: 10px;
+    outline: none;
+    width: 100%;
+}
+.button-position{
+    text-align: left;
+    width: 40%;
+}
+.button{
+    background-color: #4693ff !important;
+    padding: 20px 18px;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    margin-top: 25px;
+    transition: all .3s ;
+    width: 100%;
+    font-size: 18px;
+}
+.button:hover{
+    background-color: #227eff !important;
+}
+
+.lower-div-for-hover{
+    display: none;
+}
+.lower-hover:hover + .lower-div-for-hover{
+    display: block;
+}
+.lower-hover{
+    padding: 35px;
+}
+.textarea input{
+    width: 100%;
+    outline: none;
+    padding: 8px;
+    color: #707070;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+
+
+/* for the distraction from sakib  */
+
+.requiredField{
+    font-size: 20px;
+    margin: 20px 0px 20px 0px;
+    font-weight: 500;
+}
+.form-control-file{
+    border: none;
+}
+.textarea{
+    height: 100%;
+    max-height: 300px;
+}
+.form{
+    background-color: #fafafa;
+    padding: 20px;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #4693ff !important; 
+}
+
+
+
+
+#id_category{
+    width: 100% !important;
+}
+#id_deliver_time{
+    width: 100% !important;
+}
+.main-div-for-form{
+    padding: 0px !important;
+}
+
+
+
+/* multi tag */
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
+    .chosen-rtl .chosen-search input[type="text"],
+    .chosen-container-single .chosen-single abbr,
+    .chosen-container-single .chosen-single div b,
+    .chosen-container-single .chosen-search input[type="text"],
+    .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+    .chosen-container .chosen-results-scroll-down span,
+    .chosen-container .chosen-results-scroll-up span {
+      background-image: url("chosen-sprite@2x.png") !important;
+      background-size: 52px 37px !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen (min-width: 1200px) {
+    .over-input{
+        width: 16%
+    }
+}
+@media screen (max-width: 1200px) {
+    .category-input select {
+        width: 195px !important;        
+    }
+    .over-input{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .lower-hover:hover + .lower-div-for-hover{
+        display: none;
+    }
+    .for-hover-middle:hover + .middle-div-on-hover {
+        display: none;
+    }
+    .hover-active:hover + .for-hover{
+        display: none;
+    }
+    .category-input select {
+       
+    }
+}
+@media screen and (max-width: 768px) {
+    .category-input select {
+        width: 200px !important;
+    }
+    .button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .category-input select {
+        width: 200px !important;   
+    }
+    .like-checked {
+        width: 24%;
+    }
+    .button{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .category-input select {  
+        width: 170px !important;
+    }
+    .like-checked {
+        width: 24%;
+    }
+    .button-position {
+        text-align: left;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 428px) {
+    .category-input select {  
+        width: 140px !important;
+    }
+    .like-checked {
+        width: 24%;
+    }
+}
+@media screen and (max-width: 365px) {
+    .category-input select {  
+        width: 130px !important;
+    }
+    .like-checked {
+        width: 24%;
+    }
+}
+@media screen and (max-width: 338px) {
+    .category-input select {  
+        width: 110px !important;
+    }
+    .like-checked {
+        width: 24%;
+    }
+}

@@ -1,0 +1,72 @@
+{% load static %}
+
+
+{% include 'buyingview/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/help-support.css' %}" />
+
+
+
+<!-- For heading  -->
+<div id="heading" class=" mt-5">
+    <img src="{% static 'images/market_banner.jpg' %}" alt="">
+    <h1 class="text-warning bg-dark">What do you need help with?</h1>
+    <p class="text-white bg-dark">Take help from the pro</p>
+</div>
+
+<!-- selection section -->
+
+
+<div class="selection-area container">
+    <div class="inner-select-area mt-3">
+        <h1>how you want to get help ?</h1>
+        <select class="select" name="" id="">
+            <option value="select here">Select here</option>
+            <option value="as a buyer">As a BUYER</option>
+            <option value="as a seller">As a SELLER</option>
+        </select>
+        
+    </div>
+</div>
+
+
+
+<!-- choose the subject section -->
+
+
+<div class="selection-area container">
+    <div class="inner-select-area mt-3">
+        <h1>Choose Your Category</h1>
+        <select class="select" name="" id="">
+            <option value="select here">Select your subject</option>
+            <option value="">Digital Marketing</option>
+            <option value="">Web Design</option>
+            <option value="">Digital Marketing</option>
+            <option value="">Web Design</option>
+            <option value="">Digital Marketing</option>
+            <option value="">Web Design</option>
+            <option value="">Digital Marketing</option>
+            <option value="">Web Design</option>
+        </select>
+
+
+        <div class="button mt-4">
+            <button class="">Confirm</button>
+        </div>
+
+
+        <div class="text-area">
+            <textarea name="" id="" cols="" rows="" placeholder="Write your problem"></textarea>
+        </div>
+
+        <div class="button mt-4">
+            <button class="">Send Message</button>
+        </div>
+        
+    </div>       
+
+
+</div>
+
+
+{% include 'buyingview/buying_footer.html' %}

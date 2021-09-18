@@ -1,0 +1,18 @@
+//   console.log(offer_btn.attr('data-attr'))
+    //   offer_id_hidden.val(offer_btn.attr('data-attr'))
+    //   console.log(offer_id_hidden.val)
+
+    //   $.ajax({
+    //     url: actionEndPoint,
+    //     method: method,
+    //     data: data,
+    //     success: function (data) {
+    //       if (data.message) {
+    //         alert(data.message)
+    //         $('.offer' + data.offer_id).remove()
+    //       }
+    //     },
+    //     error: function (errorData) {
+    //       alert('Something is wrong!')
+    //     },
+    //   })

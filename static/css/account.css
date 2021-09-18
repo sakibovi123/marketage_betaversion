@@ -1,0 +1,209 @@
+*{box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+p{
+    font-size: 14px !important;
+}
+
+.account__header {
+    position: static !important;
+}
+
+/* user__profile__photo */
+.left__colum{
+    background-color: #fff;
+    margin-top: 18px;
+    padding: 23px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.right__colum{
+    margin-top: -4px;
+    padding: 23px;
+}
+
+.user__profile__details img{
+    width: 134px;
+    height: 134px;
+    margin-top: 12px;
+}
+.show__online{
+    border: 1px solid #428ad3;
+    display: inline-block;
+    color: #428ad3;
+    border-radius: 2px 7px;
+}
+.seller__name, .desig{
+    margin-top: 12px;
+}
+.profile__degignation__edit{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.public__mode{
+    border:1px solid #428ad3 !important;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+    transition: .2s ease-in-out;
+    margin-top: 12px;
+}
+.public__mode:hover{
+    color: #fff;
+    background-color: #2e57a5;
+}
+.user__profile__details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+}
+.user__profile__details p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.first__user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__button{
+    border: 1px solid #428ad3;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 4px 7px;
+    transition: .2s ease-in-out;
+}
+.footer__button:hover{
+    color: #fff;
+    background-color: #2e57a5;
+}
+.colum__footer__part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.colum__footer__part p{
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+
+/* right column tab view */
+.new__nav__link{
+    color: #000 !important;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #000 !important;
+    outline: none !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid #0d6efd;
+}
+.new__nav__pill .new__nav__link {
+    background: 0 0;
+    border: 0;
+    border-radius: 0 !important;
+}
+.new__nav__pill{
+    background-color: #fff;
+    padding: 12px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.tab__view__card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.tab___card__new{
+    width: 200px !important;
+    height: 293px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff !important;
+    border-radius: 3px;
+    margin: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.tab___card__new1{
+    width: 200px !important;
+    height: 293px !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff !important;
+    border-radius: 3px;
+    margin: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.create___icon{
+    font-size: 56px !important;
+}
+.tab___card__new img{
+    width: 100%;
+    height: 180px;
+}
+.tab___card__new a{
+    color: #000;
+}
+.tab___card___body a:hover{
+    color: #428ad3 !important;
+}
+.offer__tag{
+    color: #428ad3;
+}
+
+
+
+/* js work design */
+.after__click__edit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cancel__update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.cancel__update button{
+    background: #fff;
+    border: 1px solid #428ad3;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .2s ease-in-out;
+    margin: 7px;
+}
+.cancel__update button:hover{
+    background-color: #428ad3;
+}
+.after__click__edit{
+    padding: 10px;
+}
+.after__click__edit input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+    font-size: 14px !important;
+}
+
+
+@media (max-width:470px){
+    .tab__view__card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
