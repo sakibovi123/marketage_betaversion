@@ -187,6 +187,9 @@ urlpatterns = [
 
     # Test Reafun Part
     path("rafsun/", views.rafsun_header, name="rafsun"),
+
+    # Verification URL
+    path("verifiy/<uidb64>/<token>", views.activate_account, name="activate_account"),
 ]   
 
 

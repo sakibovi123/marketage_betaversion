@@ -1,3 +1,4 @@
+from django.contrib.auth.backends import UserModel
 from django.http.response import Http404
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,7 +9,7 @@ from .models import Offer
 import time
 import os
 from .forms import *
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import get_user_model, login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth.models import User
@@ -23,7 +24,13 @@ from ChatApp.models import *
 from django.core.mail import send_mail
 from decimal import Decimal
 from .decorators import has_selleraccount
-
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.contrib.auth import get_user_model
 
 
 
@@ -112,7 +119,7 @@ def buying_view(request):
 
 # @login_required(login_url='user_login')
 
-
+@has_selleraccount
 def offer_details(request, id):
     main_logo = MainLogo.objects.all().last()
     cats = Category.objects.all()
@@ -158,6 +165,8 @@ def offer_details(request, id):
     return render(request, 'buyingview/offers_details.html', args)
 
 
+UserModel = get_user_model()
+
 def user_registration(request):
     user_session = request.session.get("user", None)
 
@@ -167,7 +176,23 @@ def user_registration(request):
             form = UserRegistration(request.POST)
             if form.is_valid():
                 request.session["new_user"] = True
-                form.save()
+                current_site = get_current_site(request)
+                user = form.save(commit=False)
+                user.is_active = False
+                user.save()
+                mail_subject = "Account Verification Link"
+                message = render_to_string("accountview/verify.html", {
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': default_token_generator.make_token(user)
+                })
+                send_mail = form.cleaned_data.get('email')
+                email = EmailMessage(mail_subject, message, to=[send_mail])
+                email.send()
+
+                messages.success = "Account has been verified"
+                messages.info = "Please ACtivate Your Account ASAP"
 
                 return redirect('user_login')
         args = {
@@ -178,6 +203,26 @@ def user_registration(request):
         return redirect("buying_view")
 
 
+def activate_account(request, uidb64, token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode
+        user = UserModel._default_manager.get(pk=id)
+    except(TypeError, ValueError, User.DoesNotExist):
+        user = None
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.successs(request, "Your account is now activated or verified")
+        return redirect("user_login")
+    else:
+        messages.warning(request, "Your accunt not verified please try again later")
+        return redirect("user_registration")
+
+        
+
+
+
+@has_selleraccount
 def user_login(request):
     user_session = request.session.get("user", None)
     new_user = request.session.get("new_user", None)
@@ -218,7 +263,7 @@ def seller_profile(request):
 
 # Category Wise Page
 
-
+@has_selleraccount
 @login_required(login_url='user_login')
 def buyingViewcategoryWisePage(requrest, offer_id):
     category = Category.objects.all()
@@ -231,6 +276,7 @@ def buyingViewcategoryWisePage(requrest, offer_id):
 
 
 # Order page
+@has_selleraccount
 @login_required(login_url='user_login')
 def manageOrder(request):
     orders = Checkout.objects.filter(seller=request.user).filter(paid=True).order_by("-id")
@@ -267,6 +313,7 @@ def manageOrder(request):
 
 # offers page
 @login_required(login_url='user_login')
+@has_selleraccount
 def manageOffers(request):
     offers = Offer.objects.filter(user=request.user).order_by("-id")
     active_offers, pending_approvals, required_modifications, denieds, pauseds = [], [], [], [], []
@@ -317,6 +364,7 @@ def manageOffers(request):
 
 
 @login_required(login_url='user_login')
+@has_selleraccount
 def chatInbox(request):
     all_rooms = ChatRoom.objects.filter(sellers=request.user)
     
@@ -330,6 +378,7 @@ def chatInbox(request):
 
 # Buyer Chat
 @login_required(login_url='user_login')
+@has_selleraccount
 def buyer_chat_messages(request):
     chatroom = ChatRoom.objects.filter(buyer=request.user)
     print(chatroom)
@@ -344,6 +393,7 @@ def buyer_chat_messages(request):
 
 
 @login_required(login_url='user_login')
+@has_selleraccount
 def seller_dashboard(request):
     users = User.objects.all()
     active_orders, completed_orders, cancelled_orders = [], [], []
@@ -374,6 +424,7 @@ def seller_dashboard(request):
 
 # Settings Page
 @login_required(login_url='user_login')
+@has_selleraccount
 def settings_page(request):
     return render(request, 'sellingview/settings.html')
 
@@ -381,6 +432,7 @@ def settings_page(request):
 
 
 @login_required(login_url='user_login')
+@has_selleraccount
 def account_page(request):
     return render(request, 'sellingview/account.html')
 
@@ -388,6 +440,7 @@ def account_page(request):
 
 
 @login_required(login_url='user_login')
+@has_selleraccount
 def security_page(request):
     return render(request, 'sellingview/security.html')
 
@@ -402,6 +455,7 @@ def notifications_page(request):
 
 
 @login_required(login_url='user_login')
+@has_selleraccount
 def support_page(request):
     return render(request, 'azimpart/help-support.html')
 
@@ -766,7 +820,7 @@ def extendedUserView(request):
 
     if user_session is not None:
         if request.method == "POST":
-            email = request.POST.get("email")
+            # email = request.POST.get("email")
             contact_no = request.POST.get("contact_no")
             profile_picture = request.FILES.get("profile_picture")
             country_id = request.POST.get("country")
@@ -778,7 +832,7 @@ def extendedUserView(request):
             except:
                 return redirect("extended-user")
             else:
-                SellerAccount.objects.create(user=request.user, email=email,
+                SellerAccount.objects.create(user=request.user,
                                              contact_no=contact_no, profile_picture=profile_picture,
                                              country=country, city=city)
                 return redirect('buying_view')
